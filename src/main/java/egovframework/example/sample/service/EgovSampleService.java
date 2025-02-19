@@ -17,6 +17,8 @@ package egovframework.example.sample.service;
 
 import java.util.List;
 
+import com.egov.service.WriteVO;
+
 /**
  * @Class Name : EgovSampleService.java
  * @Description : EgovSampleService Class
@@ -35,6 +37,14 @@ import java.util.List;
  */
 public interface EgovSampleService {
 
+	/*
+	 * 회의록 등록
+	 * 
+	 *
+	 */
+	
+	String insertWrite(WriteVO writeVO) throws Exception;
+	
 	/**
 	 * 글을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 SampleVO
@@ -42,6 +52,14 @@ public interface EgovSampleService {
 	 * @exception Exception
 	 */
 	String insertSample(SampleVO vo) throws Exception;
+	
+	/**
+	 * 글을 등록한다.
+	 * @param writeVO - 등록할 정보가 담긴 SampleVO
+	 * @return 등록 결과
+	 * @exception Exception
+	*/
+
 
 	/**
 	 * 글을 수정한다.

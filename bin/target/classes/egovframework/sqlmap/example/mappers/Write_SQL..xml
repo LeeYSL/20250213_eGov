@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapper namespace="com.egov.service.WriteDAO">
+
+ <insert id="insertWrite" parameterType="WriteVO"> 
+  INSERT INTO meetingMain
+    (
+        meeting_id,
+        title,
+        writer,
+        emp_id,
+        meeting_date,
+        location,
+        attendees,
+        content,
+        meeting_issue,
+        action_note,
+        action_date,
+        action_person
+    )
+    VALUES
+    (
+        #{meeting_id},
+        #{title},
+        #{writer},
+        #{emp_id},
+        #{meeting_date},
+        #{location},
+        #{attendees},
+        #{content},
+        #{meeting_issue},
+        #{action_note},
+        #{action_date},
+        #{action_person}
+    )
+ </insert>
+ </mapper>

@@ -30,6 +30,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import com.egov.service.WriteVO;
+
 /**
  * @Class Name : EgovSampleServiceImpl.java
  * @Description : Sample Business Implement Class
@@ -56,6 +58,10 @@ public class EgovSampleServiceImpl extends EgovAbstractServiceImpl implements Eg
 	// TODO ibatis 사용
 	@Resource(name = "sampleDAO")
 	private SampleDAO sampleDAO;
+	
+	@Resource(name = "WriteDAO")
+	private WriteDAO writeDAO;
+
 	// TODO mybatis 사용
 	//  @Resource(name="sampleMapper")
 	//	private SampleMapper sampleDAO;
@@ -63,7 +69,27 @@ public class EgovSampleServiceImpl extends EgovAbstractServiceImpl implements Eg
 	/** ID Generation */
 	@Resource(name = "egovIdGnrService")
 	private EgovIdGnrService egovIdGnrService;
+	
+	/**
+	 * 회의록 등록
+	 */
+	
+	@Override
+	public String insertWrite(WriteVO vo) throws Exception {
+		LOGGER.debug(vo.toString());
 
+
+		System.out.println("서비스 임플" + vo);
+		
+		String id = egovIdGnrService.getNextStringId();
+		vo.setMeeting_id(id);
+		
+		System.out.println("서비스 임플2222" + id);
+
+		
+		sampleDAO.insertWrite(vo);		
+		return id;
+	}
 	/**
 	 * 글을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 SampleVO
@@ -83,6 +109,7 @@ public class EgovSampleServiceImpl extends EgovAbstractServiceImpl implements Eg
 		return id;
 	}
 
+	
 	/**
 	 * 글을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 SampleVO

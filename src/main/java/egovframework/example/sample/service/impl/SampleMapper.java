@@ -17,6 +17,8 @@ package egovframework.example.sample.service.impl;
 
 import java.util.List;
 
+import com.egov.service.WriteVO;
+
 import egovframework.example.sample.service.SampleDefaultVO;
 import egovframework.example.sample.service.SampleVO;
 
@@ -29,7 +31,8 @@ import egovframework.rte.psl.dataaccess.mapper.Mapper;
  * @since 2014.01.24
  * @version 1.0
  * @see <pre>
- *  == 개정이력(Modification Information) ==
+ *  == 개정이력(Modification Information) ==x
+ *  
  *
  *          수정일          수정자           수정내용
  *  ----------------    ------------    ---------------------------
@@ -39,6 +42,9 @@ import egovframework.rte.psl.dataaccess.mapper.Mapper;
  */
 @Mapper("sampleMapper")
 public interface SampleMapper {
+	
+	
+	void insertWrite(WriteVO vo) throws Exception;
 
 	/**
 	 * 글을 등록한다.

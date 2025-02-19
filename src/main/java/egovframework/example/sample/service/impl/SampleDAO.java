@@ -24,6 +24,8 @@ import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
 
 import org.springframework.stereotype.Repository;
 
+import com.egov.service.WriteVO;
+
 /**
  * @Class Name : SampleDAO.java
  * @Description : Sample DAO Class
@@ -43,6 +45,12 @@ import org.springframework.stereotype.Repository;
 
 @Repository("sampleDAO")
 public class SampleDAO extends EgovAbstractDAO {
+	
+	public String insertWrite(WriteVO vo) throws Exception {
+		System.out.println("DAO"+ vo);
+	return (String) insert("sampleDAO.insertWrite", vo);
+
+	}	
 
 	/**
 	 * 글을 등록한다.

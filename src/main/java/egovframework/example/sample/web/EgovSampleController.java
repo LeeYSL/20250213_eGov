@@ -37,6 +37,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springmodules.validation.commons.DefaultBeanValidator;
 
+import com.egov.service.WriteVO;
+
 /**
  * @Class Name : EgovSampleController.java
  * @Description : EgovSample Controller Class
@@ -60,6 +62,11 @@ public class EgovSampleController {
 	/** EgovSampleService */
 	@Resource(name = "sampleService")
 	private EgovSampleService sampleService;
+	
+	
+	/** EgovSampleService */
+	@Resource(name = "writeService")
+	private EgovSampleService writeService;
 
 	/** EgovPropertyService */
 	@Resource(name = "propertiesService")
@@ -114,6 +121,20 @@ public class EgovSampleController {
 	public String addSampleView(@ModelAttribute("searchVO") SampleDefaultVO searchVO, Model model) throws Exception {
 		model.addAttribute("sampleVO", new SampleVO());
 		return "sample/egovSampleRegister";
+	}
+	@RequestMapping(value = "/write/insertWrite.do", method = RequestMethod.POST)
+	@ModelAttribute("WriteVO")
+	public String insertWrite(@ModelAttribute("WriteVO") WriteVO writeVO, Model model) throws Exception {	
+		
+			System.out.println("WriteVO" + writeVO);
+			
+			sampleService.insertWrite(writeVO);
+			
+
+			System.out.println("WriteVO12345" + writeVO);
+			
+		return "metting_main/list"; 
+		
 	}
 
 	/**

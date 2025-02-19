@@ -1,13 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="form"   uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 <meta charset="UTF-8">
-<title>글쓰기</title>
+<title>상세페이지</title>
  <style>
    body {
             font-family: Arial /*폰트설정*/
@@ -139,13 +136,14 @@
 
     </style>
 </head>
-<body>
 
-<form:form commandName="WriteVO" action="write/insertWrite.do" method="post"> <!-- 폼 데이터 바인딩하고 자동으로 폼 객체 생성하는 기능 제공 -->
+
+<body>
+	   
     <div class="container">
         <h2>회의록</h2>
         <div class="btn-container">
-            <button type="submit" name="action" value="save">저장</button>
+            <button type="submit" value="등록">저장</button>
             <button type="reset">취소</button>
             <button type="submit">수정</button>
             <button type="submit">삭제</button>
@@ -169,13 +167,13 @@
                     <div class="inline-group">
                         <input type="text" name="location" value="${location}"  class="short-input">
                         <span> 5.작성자</span>
-                        <input type="text" name="writer" value="${writer}" class="short-input">
+                        <input type="text" name="attendees" value="${writer}" class="short-input">
                     </div>
                 </td>
             </tr>
             <tr>
                 <td>6.참석자</td>
-                <td><input type="text" name="attendees" value="${attendees}"></td>
+                <td><input type="text" name="meeting_attendees" value="${meeting.attendees}"></td>
             </tr>
             <tr>
                 <td>7.서명</td>
@@ -187,7 +185,7 @@
     <!-- 회의 안건 및 내용 폼 (회의록 폼 아래 배치) -->
     <div class="content-wrapper">
         <div class="meeting-notes-label">회의 안건 및 내용</div>
-        <textarea class="content">${content}</textarea>
+        <textarea class="meeting-notes">${meetingNotes.content}</textarea>
     </div>
 
 
@@ -221,9 +219,8 @@
 <!-- 회의 결과 및 이슈/리스크 -->
 <div class="content-wrapper">
     <div class="meeting-notes-label">희의 결과 및 이슈/리스크</div>
-    <textarea class="meeting_issue"> ${meeting_issue}</textarea>
+    <textarea class="meeting_issue"> ${action_person}</textarea>
 </div>
 
-</form:form>
 </body>
 </html>

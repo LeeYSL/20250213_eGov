@@ -1,10 +1,12 @@
-package com.egov.vo;
+package com.egov.service;
 
-import java.sql.Date;
+import java.util.Date;
 
-
-public class BoardVO {
-	private int meeting_id;
+public class WriteVO {
+	
+	private static final long serialVersionUID = 1L;
+	
+	private String meeting_id;
 	private String title;
 	private String writer;
 	private String emp_id;
@@ -26,12 +28,12 @@ public class BoardVO {
 		this.title = title;
 	}
 
-	public int getMeeting_id() {
+	public String getMeeting_id() {
 		return meeting_id;
 	}
 
-	public void setMeeting_id(int meeting_id) {
-		this.meeting_id = meeting_id;
+	public void setMeeting_id(String id) {
+		this.meeting_id = id;
 	}
 
 	public String getWriter() {
@@ -114,4 +116,19 @@ public class BoardVO {
 		this.action_person = action_person;
 	}
 
+	public String toString() { // 객체 정보를 더 직관적으로 표시되게
+	    return "WriteVO{" +
+	           "meeting_id=" + meeting_id +
+	           ", title='" + title + '\'' +
+	           ", writer='" + writer + '\'' +
+	           ", meeting_date=" + meeting_date +
+	           ", location='" + location + '\'' +
+	           ", attendees='" + attendees + '\'' +
+	           ", content='" + content + '\'' +
+	           ", meeting_issue='" + meeting_issue + '\'' +
+	           ", action_note='" + action_note + '\'' +
+	           ", action_date=" + action_date +
+	           ", action_person='" + action_person + '\'' +
+	           '}';
+	}
 }

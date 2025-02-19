@@ -9,6 +9,44 @@
 		<result property="useYn" column="use_yn"/>
 		<result property="regUser" column="reg_user"/>
 	</resultMap>
+	
+	<select id="testQuery" resultType="int">
+    SELECT COUNT(*) FROM meetingMain
+</select>
+	
+
+<insert id="insertWrite" parameterType="SampleVO"> 
+  INSERT INTO meetingMain
+    (
+        meeting_id,
+        title,
+        writer,
+        emp_id,
+        meeting_date,
+        location,
+        attendees,
+        content,
+        meeting_issue,
+        action_note,
+        action_date,
+        action_person
+    )
+    VALUES
+    (
+        #{meeting_id},
+        #{title},
+        #{writer},
+        #{emp_id},
+        #{meeting_date},
+        #{location},
+        #{attendees},
+        #{content},
+        #{meeting_issue},
+        #{action_note},
+        #{action_date},
+        #{action_person}
+    )
+ </insert>
 
 	<insert id="insertSample" parameterType="SampleVO">
 
